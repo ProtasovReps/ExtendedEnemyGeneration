@@ -2,23 +2,23 @@ using UnityEngine;
 
 public class Alien : MonoBehaviour
 {
-    [SerializeField] private Vector3 _direction;
-    private float _speed = 5;
+    [SerializeField] private Transform _target;
+    private float _speed = 3;
 
     private void Update()
     {
-        Move();
+        ChaseTarget();
     }
 
-    public void SetDirection(Vector3 direction)
+    public void SetTarget(Transform target)
     {
-        _direction = direction;
+        _target = target;
     }
 
-    private void Move()
+    private void ChaseTarget()
     {
-        transform.rotation = Quaternion.LookRotation(_direction, Vector3.up);
-        transform.position += _direction * _speed * Time.deltaTime;
+        transform.position = Vector3.MoveTowards(transform.position, _target.position, _speed * Time.deltaTime);
+        transform.LookAt(_target.position);
     }
 }
 

@@ -4,10 +4,11 @@ public class Spawner : MonoBehaviour
 {
     [SerializeField] private Alien _alienPrefab;
     [SerializeField] private Transform _spawnPoint;
+    [SerializeField] private Transform _survivor;
 
     public void CreateAlien()
     {
-        _alienPrefab.SetDirection(_spawnPoint.forward);
+        _alienPrefab.SetTarget(_survivor);
         _alienPrefab.transform.position = _spawnPoint.position;
         Instantiate(_alienPrefab);
     }
