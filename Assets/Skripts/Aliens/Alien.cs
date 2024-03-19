@@ -3,6 +3,7 @@ using UnityEngine;
 public class Alien : MonoBehaviour
 {
     [SerializeField] private Transform _target;
+    
     private float _speed = 3;
 
     private void Update()

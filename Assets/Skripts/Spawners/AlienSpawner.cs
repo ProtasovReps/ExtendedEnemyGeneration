@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class Spawner : MonoBehaviour
+public class AlienSpawner : MonoBehaviour
 {
     [SerializeField] private Alien _alienPrefab;
     [SerializeField] private Transform _spawnPoint;

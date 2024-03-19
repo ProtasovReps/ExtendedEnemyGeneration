@@ -1,17 +1,17 @@
 using System.Collections;
 using UnityEngine;
 
-public class SpawnerController : MonoBehaviour
+public class AlienSpawnManager : MonoBehaviour
 {
-    [SerializeField] private Spawner[] _spawners;
+    [SerializeField] private AlienSpawner[] _spawners;
     [SerializeField] private float _delay;
 
-    void Start()
+    private void Start()
     {
-        StartCoroutine(ActivateRandomSpawner());
+        StartCoroutine(CreateAlienAtRandomSpawner());
     }
 
-    private IEnumerator ActivateRandomSpawner()
+    private IEnumerator CreateAlienAtRandomSpawner()
     {
         var delay = new WaitForSeconds(_delay);
         bool isWorking = true;
